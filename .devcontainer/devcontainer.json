@@ -1,0 +1,16 @@
+{
+  "name": "Quick Actions Dev",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/ddev/ddev/install-ddev:latest": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  },
+  "postCreateCommand": "echo 'Run make dev to set up your DDEV environment.'",
+  "workspaceFolder": "/workspaces/quick_actions"
+}
