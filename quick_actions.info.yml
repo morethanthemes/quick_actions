@@ -1,0 +1,7 @@
+name: 'Quick Actions'
+type: module
+description: 'Provides a set of quick actions for admin tasks or content operations.'
+core_version_requirement: ^10 || ^11
+package: Custom
+dependencies:
+  - drupal:system

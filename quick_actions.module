@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations for the Quick Actions module.
+ */
+
+/**
+ * Implements hook_help().
+ */
+function quick_actions_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.quick_actions':
+      return t('Quick Actions provides admin or content shortcuts for Drupal sites.');
+  }
+}
