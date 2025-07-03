@@ -1,0 +1,21 @@
+{
+  "name": "morethanthemes/quick-actions-devsite",
+  "description": "Local development site for Quick Actions module",
+  "type": "project",
+  "require": {
+    "drupal/core-recommended": "^10",
+    "drupal/core-composer-scaffold": "^10",
+    "drupal/core-project-message": "^10",
+    "drush/drush": "^11"
+  },
+  "extra": {
+    "drupal-scaffold": {
+      "locations": {
+        "web-root": "web/"
+      }
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}

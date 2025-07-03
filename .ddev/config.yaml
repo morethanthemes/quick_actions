@@ -1,0 +1,10 @@
+name: quick-actions-dev
+type: drupal10
+docroot: web
+php_version: "8.1"
+router_http_port: "8080"
+router_https_port: "8443"
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: []
+use_dns_when_possible: true
