@@ -1,4 +1,3 @@
-// Update the VARIANT arg in docker-compose.yml to pick a PHP version: 7, 7.3, 7.4 
 {
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
@@ -9,10 +8,9 @@
 		"mtxr.sqltools-driver-mysql",
 		"mhutchie.git-graph"
 	],
-	
-	// Additional image and features
-	"image": "mcr.microsoft.com/devcontainers/universal:2",
-	"features": {
-		"ghcr.io/ddev/ddev/install-ddev:latest": {}
-	}
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {
+    "ghcr.io/ddev/ddev/install-ddev:latest": {}
+  },
+  "postCreateCommand": "echo 'it should all be set up'"
 }
