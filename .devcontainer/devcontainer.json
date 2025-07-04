@@ -1,6 +1,6 @@
 {
   "name": "DDEV + PHP Dev",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",  
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
   "features": {
     "ghcr.io/ddev/ddev/install-ddev:latest": {}
   },
