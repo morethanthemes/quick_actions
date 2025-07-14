@@ -1,0 +1,7 @@
+# Ignore everything in devsite
+devsite/**
+
+# But do not ignore these two files
+!devsite/composer.json
+!devsite/.ddev/
+!devsite/.ddev/config.yaml
