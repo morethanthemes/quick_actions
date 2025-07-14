@@ -1,8 +1,8 @@
 quick_actions.set_homepage:
-  path: '/admin/quick-actions/set-homepage/{node}'
+  path: '/quick-actions/set-homepage/{node}'
   defaults:
     _controller: '\Drupal\quick_actions\Controller\QuickActionsController::setHomepage'
-    _title: 'Set as Homepage'
+    _title: 'Set as homepage'
   requirements:
-    _permission: 'access content'
-    node: '\d+'
+    _permission: 'administer site configuration'
+    node: \d+
