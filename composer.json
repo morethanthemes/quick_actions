@@ -1,0 +1,10 @@
+{
+  "name": "morethanthemes/quick-actions",
+  "type": "drupal-custom-module",
+  "description": "Quick Actions custom module",
+  "autoload": {
+    "psr-4": {
+      "Drupal\\quick_actions\\": "src/"
+    }
+  }
+}
