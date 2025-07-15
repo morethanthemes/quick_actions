@@ -1,0 +1,4 @@
+# Default values (can be changed later via admin UI or contextual link)
+events_default:
+  view: events_index
+  display: page_1

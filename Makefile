@@ -31,6 +31,10 @@ ddev-clean:
 ddev-start:
 	cd $(DDEV_DIR) && ddev start
 
+# Stop DDEV
+ddev-stop:
+	cd $(DDEV_DIR) && ddev start
+
 link-module:
 	@echo "Creating symlinked module in $(SYMLINK_DIR)"
 	mkdir -p $(SYMLINK_DIR)
@@ -69,5 +73,30 @@ sync-module:
 		--exclude='Makefile' \
 		--exclude='README.md' \
 		$(SRC_DIR)/ $(DEST_DIR)
+
+
+# Set the default events view display (e.g. index or cards)
+# make set-events-default path=index
+# or
+# make set-events-default path=cards
+set-events-default:
+	@echo "⚙️  Setting default events view to page_$(path)"
+	cd $(DDEV_DIR) && ddev drush cset quick_actions.settings events_default.view events --yes
+	cd $(DDEV_DIR) && ddev drush cset quick_actions.settings events_default.display page_$(path) --yes
+
+drush-cr:
+	cd $(DDEV_DIR) && ddev drush cr
+
+
+# Export just the events_index view from active config to module-local file
+export-events-view:
+	@echo "📤 Exporting 'events_index' view config..."
+	cd $(DDEV_DIR) && ddev drush config:get views.view.events --format=yaml > ../config/dev/views.view.events.yml
+
+# Import only the events_index view from file, no full config overwrite
+import-events-view:
+	@echo "📥 Importing 'events' view config (single import)..."
+	cd $(DDEV_DIR) && ddev drush config:import --partial --source=/home/skounis/drupal/quick_actions/config/dev
+	cd $(DDEV_DIR) && ddev drush cr
 
 .PHONY: dev reset login stop ddev-clean ddev-start link-module sync-module
