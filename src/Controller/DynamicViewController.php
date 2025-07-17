@@ -21,10 +21,13 @@ class DynamicViewController extends ControllerBase {
     );
   }
 
-  public function renderForScope() {
-    $scope = 'events'; // Hardcoded for this route
-
+  public function renderForScope(string $scope) {
     $paths = $this->config('quick_actions.settings')->get('default_paths') ?? [];
+    \Drupal::logger('quick_actions')->notice('Dynamic route called for scope: @scope', ['@scope' => $scope]);
+
+    // return [
+    //     '#markup' => "<h1>Dynamic route: $scope</h1>",
+    // ];
 
     foreach ($paths as $path) {
         if (str_starts_with($path, "/$scope/")) {

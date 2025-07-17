@@ -13,11 +13,16 @@ quick_actions.set_homepage:
 #     _title: 'Events'
 #   requirements:
 #     _permission: 'access content'
-quick_actions.events:
-  path: '/events'
+# quick_actions.events:
+#   path: '/events'
+#   defaults:
+#     _controller: '\Drupal\quick_actions\Controller\DynamicViewController::renderForScope'
+#     _title: 'Events'
+#   requirements:
+#     _permission: 'access content'
+quick_actions.dynamic:
+  path: '/dyn/{scope}'
   defaults:
     _controller: '\Drupal\quick_actions\Controller\DynamicViewController::renderForScope'
-    _title: 'Events'
   requirements:
     _permission: 'access content'
-
