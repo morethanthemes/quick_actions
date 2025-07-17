@@ -6,23 +6,3 @@ quick_actions.set_homepage:
   requirements:
     _permission: 'administer site configuration'
     node: \d+
-# quick_actions.events:
-#   path: '/events'
-#   defaults:
-#     _controller: '\Drupal\quick_actions\Controller\EventsDefaultViewController::render'
-#     _title: 'Events'
-#   requirements:
-#     _permission: 'access content'
-# quick_actions.events:
-#   path: '/events'
-#   defaults:
-#     _controller: '\Drupal\quick_actions\Controller\DynamicViewController::renderForScope'
-#     _title: 'Events'
-#   requirements:
-#     _permission: 'access content'
-quick_actions.dynamic:
-  path: '/dyn/{scope}'
-  defaults:
-    _controller: '\Drupal\quick_actions\Controller\DynamicViewController::renderForScope'
-  requirements:
-    _permission: 'access content'

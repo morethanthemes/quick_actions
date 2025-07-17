@@ -80,10 +80,27 @@ sync-module:
 # make set-events-default path=index
 # or
 # make set-events-default path=cards
-set-events-default:
-	@echo "⚙️  Setting default events view to page_$(path)"
-	cd $(DDEV_DIR) && ddev drush cset quick_actions.settings events_default.view events --yes
-	cd $(DDEV_DIR) && ddev drush cset quick_actions.settings events_default.display page_$(path) --yes
+# set-events-default:
+# 	@echo "⚙️  Setting default events view to page_$(path)"
+# 	cd $(DDEV_DIR) && ddev drush cset quick_actions.settings events_default.view events --yes
+# 	cd $(DDEV_DIR) && ddev drush cset quick_actions.settings events_default.display page_$(path) --yes
+
+# Set a single default view path
+# Usage: make set-default-path path=events/cards
+# set-default-path:
+# 	@echo "⚙️  Setting default path to /$(path)"
+# 	cd $(DDEV_DIR) && ddev drush cset quick_actions.settings default_paths '[/$(path)]' --input-format=yaml --yes
+
+
+# Set the full default_paths array
+# Usage:
+# make set-default-paths paths=/events/cards,/services/index
+set-default-paths:
+	@echo "⚙️  Setting default_paths to: [$(paths)]"
+	cd $(DDEV_DIR) && ddev drush php-eval "\$$paths = explode(',', '$(paths)'); \Drupal::configFactory()->getEditable('quick_actions.settings')->set('default_paths', \$$paths)->save();"
+
+get-default-paths:
+	cd $(DDEV_DIR) && ddev drush cget quick_actions.settings default_paths
 
 drush-cr:
 	cd $(DDEV_DIR) && ddev drush cr

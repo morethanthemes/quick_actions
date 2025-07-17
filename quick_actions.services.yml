@@ -7,3 +7,13 @@ services:
       - '@config.factory'
     tags:
       - { name: drush.command }
+  quick_actions.route_subscriber:
+    class: Drupal\quick_actions\Routing\DynamicRouteSubscriber
+    arguments: ['@config.factory']
+    tags:
+      - { name: event_subscriber }
+  quick_actions.route_provider:
+    class: Drupal\quick_actions\Routing\DynamicRouteProvider
+    arguments: ['@config.factory']
+    tags:
+      - { name: route_provider }
