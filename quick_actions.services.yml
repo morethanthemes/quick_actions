@@ -17,3 +17,8 @@ services:
     arguments: ['@config.factory']
     tags:
       - { name: route_provider }
+  quick_actions.controller:
+    class: Drupal\quick_actions\Controller\QuickActionsController
+    arguments: ['@config.factory']
+    tags:
+      - { name: controller.service_arguments }

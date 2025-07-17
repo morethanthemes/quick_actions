@@ -1,0 +1,11 @@
+set_default:
+  css:
+    theme:
+      css/set-default.css: {}
+  js:
+    js/set-default.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/once

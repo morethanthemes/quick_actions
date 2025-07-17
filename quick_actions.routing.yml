@@ -6,3 +6,11 @@ quick_actions.set_homepage:
   requirements:
     _permission: 'administer site configuration'
     node: \d+
+quick_actions.set_default_path:
+  path: '/quick-actions/set-default-path'
+  defaults:
+    _controller: '\Drupal\quick_actions\Controller\QuickActionsController::setDefaultPath'
+    # _controller: 'quick_actions.controller:setDefaultPath'
+  requirements:
+    _permission: 'administer site configuration'
+  methods: [POST]

@@ -41,3 +41,23 @@ function quick_actions_form_node_form_alter(&$form, FormStateInterface $form_sta
     ];
   }
 }
+
+/**
+ * Implements hook_page_top().
+ */
+function quick_actions_page_top(array &$page_top) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $paths = \Drupal::config('quick_actions.settings')->get('default_paths') ?? [];
+
+  // Avoid duplicates.
+  if (in_array($current_path, $paths)) {
+    return;
+  }
+
+  $page_top['quick_actions_set_default'] = [
+    '#markup' => '<div id="set-as-default-button"><a href="#" class="set-as-default-link">Set as default</a></div>',
+    '#attached' => [
+      'library' => ['quick_actions/set_default'],
+    ],
+  ];
+}
