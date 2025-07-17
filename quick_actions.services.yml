@@ -1,0 +1,9 @@
+services:
+  quick_actions.view_path_resolver:
+    class: Drupal\quick_actions\Service\ViewPathResolver
+  quick_actions.drush.commands:
+    class: Drupal\quick_actions\Commands\QuickActionsDrushCommands
+    arguments:
+      - '@config.factory'
+    tags:
+      - { name: drush.command }
